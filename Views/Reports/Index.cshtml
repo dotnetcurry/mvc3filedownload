@@ -1,0 +1,37 @@
+﻿@model IEnumerable<MVC3_Returning_Files.Models.FileNames>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+     <th>
+            FileId
+        </th>
+        <th>
+            FileName
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+    <td>
+            @Html.DisplayFor(modelItem => item.FileId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.ActionLink("Download", "Download", new { id = item.FileId }) 
+          
+        </td>
+    </tr>
+}
+
+</table>
